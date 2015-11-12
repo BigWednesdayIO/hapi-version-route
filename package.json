@@ -4,7 +4,9 @@
   "description": "Exposes server version through a route for a hapi server",
   "main": "index.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "watch": "grunt watch",
+    "ci": "grunt ci"
   },
   "engines": {
     "node": ">=4.0.0"
@@ -22,5 +24,21 @@
   "bugs": {
     "url": "https://github.com/BigWednesdayIO/hapi-version-route/issues"
   },
-  "homepage": "https://github.com/BigWednesdayIO/hapi-version-route#readme"
+  "homepage": "https://github.com/BigWednesdayIO/hapi-version-route#readme",
+  "devDependencies": {
+    "babel-eslint": "^4.1.4",
+    "chai": "^3.4.1",
+    "eslint": "^1.9.0",
+    "eslint-config-xo-space": "^0.6.1",
+    "eslint-plugin-babel": "^2.1.1",
+    "grunt": "^0.4.5",
+    "grunt-cli": "^0.1.13",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-eslint": "^17.3.1",
+    "grunt-mocha-test": "^0.12.7",
+    "grunt-retire": "^0.3.10",
+    "hapi": "^11.1.0",
+    "load-grunt-tasks": "^3.3.0",
+    "mocha": "^2.3.3"
+  }
 }
