@@ -6,6 +6,9 @@
   "scripts": {
     "test": "grunt test"
   },
+  "engines": {
+    "node": ">=4.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BigWednesdayIO/hapi-version-route.git"
