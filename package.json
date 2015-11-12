@@ -6,7 +6,7 @@
   "scripts": {
     "test": "grunt test",
     "watch": "grunt watch",
-    "ci": "grunt ci"
+    "retire": "grunt retire"
   },
   "engines": {
     "node": ">=4.0.0"
