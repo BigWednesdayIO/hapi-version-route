@@ -32,4 +32,20 @@ describe('Plugin', () => {
   it('returns the server version from npm_package_version', () => {
     expect(versionResponse.result.version).to.equal(process.env.npm_package_version);
   });
+
+  it('supports a custom route path', done => {
+    const server = new Hapi.Server();
+    server.connection({});
+
+    server.register([{register: plugin, options: {path: '/my_version_path'}}], err => {
+      if (err) {
+        return done(err);
+      }
+
+      server.inject({url: '/my_version_path', method: 'GET'}, response => {
+        expect(response.statusCode).to.equal(200);
+        done();
+      });
+    });
+  });
 });
