@@ -1,0 +1,23 @@
+{
+  "name": "hapi-version-route",
+  "version": "1.0.0",
+  "description": "Exposes server version through a route for a hapi server",
+  "main": "index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BigWednesdayIO/hapi-version-route.git"
+  },
+  "keywords": [
+    "hapi",
+    "version"
+  ],
+  "author": "Big Wednesday IO <info@bigwednesday.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BigWednesdayIO/hapi-version-route/issues"
+  },
+  "homepage": "https://github.com/BigWednesdayIO/hapi-version-route#readme"
+}
