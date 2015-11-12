@@ -33,6 +33,22 @@ describe('Plugin', () => {
     expect(versionResponse.result.version).to.equal(process.env.npm_package_version);
   });
 
+  it('callsback with error when npm_package_version is empty', () => {
+    const version = process.env.npm_package_version;
+    delete process.env.npm_package_version;
+
+    const server = new Hapi.Server();
+    server.connection({});
+
+    server.register([{register: plugin}], err => {
+      process.env.npm_package_version = version;
+
+      expect(err).to.exist;
+      expect(err).to.be.instanceOf(Error);
+      expect(err.message).to.equal('npm_package_version variable missing. Please use npm start!');
+    });
+  });
+
   it('supports a custom route path', done => {
     const server = new Hapi.Server();
     server.connection({});
