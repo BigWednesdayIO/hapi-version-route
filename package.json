@@ -1,6 +1,6 @@
 {
   "name": "hapi-version-route",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Exposes server version through a route for a hapi server",
   "main": "index.js",
   "scripts": {
