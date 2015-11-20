@@ -25,6 +25,9 @@
     "url": "https://github.com/BigWednesdayIO/hapi-version-route/issues"
   },
   "homepage": "https://github.com/BigWednesdayIO/hapi-version-route#readme",
+  "peerDependencies": {
+    "hapi": "^11"
+  },
   "devDependencies": {
     "babel-eslint": "^4.1.4",
     "chai": "^3.4.1",
