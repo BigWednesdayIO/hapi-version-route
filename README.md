@@ -39,3 +39,4 @@ GET /version
 ## Plugin options
 
 path - register your own path, instead of /version
+auth - auth config for the route
