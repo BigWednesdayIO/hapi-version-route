@@ -1,6 +1,7 @@
 'use strict';
 
 const expect = require('chai').expect;
+const basicAuth = require('hapi-auth-basic');
 const Hapi = require('hapi');
 
 const plugin = require('../index');
@@ -59,6 +60,44 @@ describe('Plugin', () => {
       }
 
       server.inject({url: '/my_version_path', method: 'GET'}, response => {
+        expect(response.statusCode).to.equal(200);
+        done();
+      });
+    });
+  });
+
+  it('uses server auth by default', done => {
+    const server = new Hapi.Server();
+    server.connection({});
+
+    server.register([basicAuth, plugin], err => {
+      if (err) {
+        return done(err);
+      }
+
+      server.auth.strategy('simple', 'basic', {validateFunc: () => callback(null, false)});
+      server.auth.default('simple');
+
+      server.inject({url: '/version', method: 'GET'}, response => {
+        expect(response.statusCode).to.equal(401);
+        done();
+      });
+    });
+  });
+
+  it('supports overriding server auth', done => {
+    const server = new Hapi.Server();
+    server.connection({});
+
+    server.register([basicAuth, {register: plugin, options: {auth: false}}], err => {
+      if (err) {
+        return done(err);
+      }
+
+      server.auth.strategy('simple', 'basic', {validateFunc: () => callback(null, false)});
+      server.auth.default('simple');
+
+      server.inject({url: '/version', method: 'GET'}, response => {
         expect(response.statusCode).to.equal(200);
         done();
       });
