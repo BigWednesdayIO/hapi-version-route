@@ -9,6 +9,7 @@ exports.register = function (server, options, next) {
     method: 'GET',
     path: options.path || '/version',
     config: {
+      auth: options.auth,
       description: 'Returns the version of the server',
       handler(request, reply) {
         reply({
